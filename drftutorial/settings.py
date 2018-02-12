@@ -25,7 +25,7 @@ SECRET_KEY = ')jm^87zfv5a!lki!m5stveueb6u30u4bf44j3!gbhuy86f(q4b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rnjailamba.pythonanywhere.com', 'vuefrontend.herokuapp.com']
+ALLOWED_HOSTS = ['rnjailamba.pythonanywhere.com', 'vuefrontend.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',    
     'catalog',
+    'industry',
 ]
 
 
