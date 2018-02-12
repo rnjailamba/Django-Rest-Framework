@@ -85,29 +85,23 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'industrydb',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'password',
-    #     'HOST': '127.0.0.1',
-    #     'PORT': '5432',
-    # }
-
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'daundtpur950oj',
-        'USER': 'onlobwoyncqffr',
-        'PASSWORD': '2f3c9271564c5d83082754e644b196c3952e7b1dcee94c5e79682dfac8a305c7',
-        'HOST': 'ec2-184-73-174-171.compute-1.amazonaws.com',
+        'NAME': 'industrydb',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 
-
-
-
-
-    # 'default': dj_database_url.config(default='postgres://localhost:5432/industrydb'),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'daundtpur950oj',
+    #     'USER': 'onlobwoyncqffr',
+    #     'PASSWORD': '2f3c9271564c5d83082754e644b196c3952e7b1dcee94c5e79682dfac8a305c7',
+    #     'HOST': 'ec2-184-73-174-171.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 
 }
 

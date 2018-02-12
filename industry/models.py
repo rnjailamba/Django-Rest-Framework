@@ -6,8 +6,10 @@ from django.db import models
 # Create your models here.
 
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 
 class Industry(models.Model):
     name = models.CharField(max_length=255)
     industry_id = models.BigIntegerField(primary_key=True)
+    parent_ids = ArrayField(models.BigIntegerField(), null=True)
