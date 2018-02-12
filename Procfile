@@ -1,0 +1,1 @@
+web: gunicorn drfbackend.wsgi --log-file -
