@@ -17,6 +17,33 @@ class IndustryUpload(APIView):
         data = request.data
         for i in range(len(data)):
             print data[i]
+            industry_id = data[i]['industry_id']
+            num = industry_id
+            if(Industry.objects.filter(industry_id=str(num)).exists()):
+                obj = Industry.objects.filter(industry_id=str(num)).update(name=data[i]['name'])
+                return Response(obj, status=status.HTTP_201_CREATED)
+            arr = []
+            direct_parent_id = None
+            string = str(num)
+            for c in string:
+                num = num / 10
+                if (num > 0 and Industry.objects.filter(industry_id=str(num)).exists()):
+                    if direct_parent_id is None:
+                        direct_parent_id = num
+                    print Industry.objects.get(industry_id=str(num)).name
+                    arr.append(num)
+                print num
+            print arr
+            data[i]['parent_ids'] = arr
+            data[i]['direct_parent_id'] = direct_parent_id
+            industries = Industry.objects.filter(industry_id__startswith=string)
+            for industry in industries:
+                print(industry.industry_id)
+                industry.parent_ids.append(string)
+                direct_parent_id = industry.direct_parent_id
+                if direct_parent_id is None or int(direct_parent_id) < industry_id :
+                    industry.direct_parent_id = industry_id
+                industry.save()
             serializer = IndustrySerializer(data=data[i])
             if serializer.is_valid():
                 serializer.save()

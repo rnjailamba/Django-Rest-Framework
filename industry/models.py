@@ -11,5 +11,6 @@ from django.contrib.postgres.fields import ArrayField
 
 class Industry(models.Model):
     name = models.CharField(max_length=255)
-    industry_id = models.BigIntegerField(primary_key=True)
-    parent_ids = ArrayField(models.BigIntegerField(), null=True)
+    industry_id = models.CharField(max_length=255, primary_key=True)
+    direct_parent_id = models.CharField(max_length=255, null=True)
+    parent_ids = ArrayField(models.CharField(max_length=255), null=True)

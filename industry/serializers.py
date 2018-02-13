@@ -5,4 +5,4 @@ from rest_framework import serializers
 class IndustrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Industry
-        fields = ('industry_id', 'name', 'parent_ids')
+        fields = ('industry_id', 'name', 'parent_ids', 'direct_parent_id')
