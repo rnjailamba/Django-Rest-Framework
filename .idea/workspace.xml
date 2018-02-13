@@ -19,11 +19,21 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/industry/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="113" column="39" lean-forward="false" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+            <state relative-caret-position="179">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="100" column="85" lean-forward="false" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="85" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +125,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
-    <property name="SearchEverywhereHistoryKey" value="settin&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;sett&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;setti&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;industry/mod&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/industry/models.py&#10;set&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py" />
+    <property name="SearchEverywhereHistoryKey" value="set&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;sett&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;settin&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;setti&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;industry/mod&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/industry/models.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,13 +267,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/industry/views.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -277,54 +280,54 @@
           <properties exception="VariableDoesNotExist" />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="41" />
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>Industry.objects.filter(parent_ids__contains=[str(pk)]).count()</expression-string>
+        <expression-string>request.data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Industry.objects.filter(parent_ids__contains=[str(pk)])</expression-string>
+        <expression-string>request</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Industry.objects.all().count()</expression-string>
+        <expression-string>data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Industry.objects.all()</expression-string>
+        <expression-string>data['u']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>a</expression-string>
+        <expression-string>data[&quot;i&quot;]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data[i]['name']</expression-string>
+        <expression-string>data[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ids.item</expression-string>
+        <expression-string>data[0][&quot;i&quot;]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>ids.count()</expression-string>
+        <expression-string>data['id']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Industry.objects.get(industry_id=str(159))</expression-string>
+        <expression-string>data.result</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -663,26 +666,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
+    <entry file="file:///Library/Python/2.7/site-packages/rest_framework/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="84" column="55" lean-forward="true" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="55" />
+        <state relative-caret-position="149">
+          <caret line="437" column="0" lean-forward="false" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/rest_framework/views.py">
+    <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="437" column="0" lean-forward="false" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="100" column="85" lean-forward="false" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/industry/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="113" column="39" lean-forward="false" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+        <state relative-caret-position="179">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>

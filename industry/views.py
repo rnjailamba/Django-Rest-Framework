@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from .models import Industry
 from .serializers import IndustrySerializer
 from django.db.models import Q
+import json, ast
 
 
 class IndustryList(APIView):
@@ -41,24 +42,25 @@ class IndustryList(APIView):
 
 class IndustryUpload(APIView):
     def post(self, request, format=None):
-        data = request.data
-
+        data_json = self.request.body
+        data = json.loads(data_json)
+        data = ast.literal_eval(json.dumps(data))
         for i in range(len(data)):
-            industry_id = data[i]['industry_id']
-            num = industry_id
+            industry_id = data[i]['id']
+            num = int(industry_id)
             if(Industry.objects.filter(industry_id=str(num)).exists()):
                 obj = Industry.objects.filter(industry_id=str(num)).update(name=data[i]['name'])
                 return Response(obj, status=status.HTTP_201_CREATED)
             arr = []
             direct_parent_id = None
             string = str(num)
-
             for c in string:
                 num = num / 10
                 if (num > 0 and Industry.objects.filter(industry_id=str(num)).exists()):
                     if direct_parent_id is None:
                         direct_parent_id = num
                     arr.append(num)
+            data[i]['industry_id'] = data[i]['id']
             data[i]['parent_ids'] = arr
             data[i]['direct_parent_id'] = direct_parent_id
             industries = Industry.objects.filter(industry_id__startswith=string)
