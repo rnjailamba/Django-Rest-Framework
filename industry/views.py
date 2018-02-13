@@ -35,7 +35,9 @@ class IndustryList(APIView):
                     parent['children'] = []
                 children = parent['children']
                 children.append(node)
-        return Response(forest)
+        final_response = {}
+        final_response["industries"] = forest
+        return Response(final_response)
 
 class IndustryUpload(APIView):
     def post(self, request, format=None):
@@ -107,4 +109,6 @@ class IndustryDetail(APIView):
                     parent['children'] = []
                 children = parent['children']
                 children.append(node)
-        return Response(forest)
+        final_response = {}
+        final_response["industries"] = forest
+        return Response(final_response)
