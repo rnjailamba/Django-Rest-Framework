@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5ee01e0-41f9-4553-a4cf-0ce804bce89c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/industry/views.py" afterPath="$PROJECT_DIR$/industry/views.py" />
+      <change beforePath="$PROJECT_DIR$/drftutorial/settings.py" afterPath="$PROJECT_DIR$/drftutorial/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/industry/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -28,12 +28,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Python/2.7/site-packages/rest_framework/views.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-202">
-              <caret line="437" column="0" lean-forward="false" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="281">
+              <caret line="94" column="7" lean-forward="true" selection-start-line="87" selection-start-column="6" selection-end-line="94" selection-end-column="7" />
+              <folding>
+                <marker date="1518527383000" expanded="true" signature="2499:2710" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,13 +64,13 @@
         <option value="$PROJECT_DIR$/runtime.txt" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/drftutorial/settings.py" />
         <option value="$PROJECT_DIR$/industry/migrations/0003_industry_parent_ids.py" />
         <option value="$PROJECT_DIR$/industry/urls.py" />
         <option value="$PROJECT_DIR$/industry/models.py" />
         <option value="$PROJECT_DIR$/industry/serializers.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/industry/views.py" />
+        <option value="$PROJECT_DIR$/drftutorial/settings.py" />
       </list>
     </option>
   </component>
@@ -125,7 +127,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/industry/models.py&#10;sett&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;settin&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;setti&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;industry/mod&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/industry/models.py&#10;set&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py" />
+    <property name="SearchEverywhereHistoryKey" value="settin&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;sett&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;setti&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py&#10;industry/mod&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/industry/models.py&#10;set&#9;FILE&#9;file:///Users/rnjailamba/Desktop/django/drftutorial/drftutorial/settings.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -233,6 +235,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -246,7 +249,7 @@
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -433,6 +436,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,14 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/industry/migrations/0003_industry_parent_ids.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -682,10 +678,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/industry/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drftutorial/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="94" column="7" lean-forward="true" selection-start-line="87" selection-start-column="6" selection-end-line="94" selection-end-column="7" />
+          <folding>
+            <marker date="1518527383000" expanded="true" signature="2499:2710" ph="..." />
           </folding>
         </state>
       </provider>
