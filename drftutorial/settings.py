@@ -59,8 +59,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1:8000',
-    'vuefrontend.herokuapp.com'
+    'vuefrontend.herokuapp.com',
+    '127.0.0.1:8000'
 )
 
 ROOT_URLCONF = 'drftutorial.urls'
