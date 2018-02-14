@@ -96,7 +96,7 @@ class IndustryUpload(APIView):
             for industry in industries:
                 industry.parent_ids.append(string)
                 direct_parent_id = industry.direct_parent_id
-                if direct_parent_id is None or int(direct_parent_id) < industry_id :
+                if direct_parent_id is None or int(direct_parent_id) < int(industry_id) :
                     industry.direct_parent_id = industry_id
                 industry.save()
             serializer = IndustrySerializer(data=data[i])
