@@ -26,12 +26,14 @@ SECRET_KEY = ')jm^87zfv5a!lki!m5stveueb6u30u4bf44j3!gbhuy86f(q4b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['rnjailamba.pythonanywhere.com', 'vuefrontend.herokuapp.com', '127.0.0.1', 'drfbackend.herokuapp.com']
+ALLOWED_HOSTS = ['vuefrontend.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
+CORS_ORIGIN_ALLOW_ALL=True
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +57,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    '127.0.0.1:8000',
+    'vuefrontend.herokuapp.com'
+)
 
 ROOT_URLCONF = 'drftutorial.urls'
 
