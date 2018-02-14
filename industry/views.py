@@ -10,11 +10,40 @@ import json, ast
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
+def is_authenticated(request):
+    return request.user.is_authenticated()
+
+def get_forest_from_pairs(pairs):
+    nodes = {}
+    for i in pairs:
+        id, parent_id = i
+        nodes[id] = {'id': id, 'name': Industry.objects.get(industry_id=str(id)).name, }
+
+    forest = []
+    for i in pairs:
+        id, parent_id = i
+        node = nodes[id]
+        if id == parent_id:
+            forest.append(node)
+        else:
+            parent = nodes[parent_id]
+            if not 'children' in parent:
+                parent['children'] = []
+            children = parent['children']
+            children.append(node)
+    final_response = {}
+    final_response["industries"] = forest
+    return final_response
+
+def get_request_json(request):
+    data_json = request.body
+    data = json.loads(data_json)
+    data = ast.literal_eval(json.dumps(data))
+    return data
+
 class UserList(APIView):
     def post(self, request, format=None):
-        data_json = self.request.body
-        data = json.loads(data_json)
-        data = ast.literal_eval(json.dumps(data))
+        data = get_request_json(self.request)
         data["username"] = data["name"]
         data["password"] = data["description"]
         serializer = UserSerializer(data=data)
@@ -29,6 +58,7 @@ class UserList(APIView):
 
 class IndustryList(APIView):
     def get(self, request, format=None):
+        if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
         industries = Industry.objects.all()
         pairs = [] # parent child pairs
 
@@ -37,39 +67,19 @@ class IndustryList(APIView):
                 pairs.append([industry.industry_id, industry.industry_id])
             else:
                 pairs.append([industry.industry_id, industry.direct_parent_id])
-
-        nodes = {}
-        for i in pairs:
-            id, parent_id = i
-            nodes[id] = {'id': id, 'name': Industry.objects.get(industry_id=str(id)).name,}
-
-        forest = []
-        for i in pairs:
-            id, parent_id = i
-            node = nodes[id]
-            if id == parent_id:
-                forest.append(node)
-            else:
-                parent = nodes[parent_id]
-                if not 'children' in parent:
-                    parent['children'] = []
-                children = parent['children']
-                children.append(node)
-        final_response = {}
-        final_response["industries"] = forest
+        final_response = get_forest_from_pairs(pairs)
         return Response(final_response)
 
 class IndustryUpload(APIView):
     def post(self, request, format=None):
-        data_json = self.request.body
-        data = json.loads(data_json)
-        data = ast.literal_eval(json.dumps(data))
+        if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
+        data = get_request_json(self.request)
         for i in range(len(data)):
             industry_id = data[i]['id']
             num = int(industry_id)
             if(Industry.objects.filter(industry_id=str(num)).exists()):
                 obj = Industry.objects.filter(industry_id=str(num)).update(name=data[i]['name'])
-                return Response(obj, status=status.HTTP_201_CREATED)
+                continue
             arr = []
             direct_parent_id = None
             string = str(num)
@@ -92,15 +102,16 @@ class IndustryUpload(APIView):
             serializer = IndustrySerializer(data=data[i])
             if serializer.is_valid():
                 serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response("", status=status.HTTP_201_CREATED)
 
 class IndustryDetail(APIView):
     """
     Retrieve an Industry instance
     """
     def get(self, request, pk, format=None):
-
+        if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
         try:
             industries = Industry.objects.filter(Q(parent_ids__contains=[str(pk)]) | Q(industry_id=str(pk)))
         except Industry.DoesNotExist:
@@ -113,23 +124,11 @@ class IndustryDetail(APIView):
             else:
                 pairs.append([industry.industry_id, industry.direct_parent_id])
 
-        nodes = {}
-        for i in pairs:
-            id, parent_id = i
-            nodes[id] = {'id': id, 'name': Industry.objects.get(industry_id=str(id)).name,}
-
-        forest = []
-        for i in pairs:
-            id, parent_id = i
-            node = nodes[id]
-            if id == parent_id:
-                forest.append(node)
-            else:
-                parent = nodes[parent_id]
-                if not 'children' in parent:
-                    parent['children'] = []
-                children = parent['children']
-                children.append(node)
-        final_response = {}
-        final_response["industries"] = forest
+        final_response = get_forest_from_pairs(pairs)
         return Response(final_response)
+
+class IndustryDelete(APIView):
+    def delete(self, request, format=None):
+        if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
+        Industry.objects.all().delete()
+        return Response("", status=status.HTTP_200_OK)
