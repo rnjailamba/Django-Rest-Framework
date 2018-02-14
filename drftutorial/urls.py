@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('catalog.urls')),
     url(r'^', include('industry.urls')),
-    url(r'^apps/register', obtain_auth_token),
+    url(r'^api-token-auth/', obtain_auth_token)
 ]

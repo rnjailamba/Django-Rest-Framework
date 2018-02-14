@@ -4,9 +4,28 @@ from rest_framework import status
 from rest_framework.views import APIView
 from .models import Industry
 from .serializers import IndustrySerializer
+from .serializers import UserSerializer
 from django.db.models import Q
 import json, ast
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 
+class UserList(APIView):
+    def post(self, request, format=None):
+        data_json = self.request.body
+        data = json.loads(data_json)
+        data = ast.literal_eval(json.dumps(data))
+        data["username"] = data["name"]
+        data["password"] = data["description"]
+        serializer = UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+        try:
+            user = User.objects.get(username=serializer.data['username'])
+        except User.DoesNotExist:
+            return Response("", status=status.HTTP_400_BAD_REQUEST)
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key}, status=status.HTTP_200_OK)
 
 class IndustryList(APIView):
     def get(self, request, format=None):
