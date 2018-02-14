@@ -46,9 +46,14 @@ def get_request_json(request):
 def convertCSVToArray(request):
     file = request.FILES.get('file_upload', None)
     reader = csv.reader(file)
-    csv.register_dialect('delimiter', delimiter=reader.dialect.delimiter, quoting=csv.QUOTE_NONE)
+    delim = ','
     csv_arr = []
-    next(reader)
+    # next(reader)
+    for row in reader:
+        if(row[0].find('|') != -1):
+            delim = '|'
+        break
+    csv.register_dialect('delimiter', delimiter=delim, quoting=csv.QUOTE_NONE)
     for row in csv.DictReader(file, dialect='delimiter'):
         csv_arr.append(row)
     file.close()
