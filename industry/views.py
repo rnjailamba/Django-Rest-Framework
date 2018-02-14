@@ -83,42 +83,6 @@ class IndustryList(APIView):
         final_response = get_forest_from_pairs(pairs)
         return Response(final_response)
 
-class IndustryUpload(APIView):
-    def post(self, request, format=None):
-        if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
-        data = get_request_json(self.request)
-        for i in range(len(data)):
-            industry_id = data[i]['id']
-            num = int(industry_id)
-            if(Industry.objects.filter(industry_id=str(num)).exists()):
-                obj = Industry.objects.filter(industry_id=str(num)).update(name=data[i]['name'])
-                continue
-            arr = []
-            direct_parent_id = None
-            string = str(num)
-            for c in string:
-                num = num / 10
-                if (num > 0 and Industry.objects.filter(industry_id=str(num)).exists()):
-                    if direct_parent_id is None:
-                        direct_parent_id = num
-                    arr.append(num)
-            data[i]['industry_id'] = data[i]['id']
-            data[i]['parent_ids'] = arr
-            data[i]['direct_parent_id'] = direct_parent_id
-            industries = Industry.objects.filter(industry_id__startswith=string)
-            for industry in industries:
-                industry.parent_ids.append(string)
-                direct_parent_id = industry.direct_parent_id
-                if direct_parent_id is None or int(direct_parent_id) < int(industry_id) :
-                    industry.direct_parent_id = industry_id
-                industry.save()
-            serializer = IndustrySerializer(data=data[i])
-            if serializer.is_valid():
-                serializer.save()
-            else:
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        return Response("", status=status.HTTP_201_CREATED)
-
 class IndustryDetail(APIView):
     """
     Retrieve an Industry instance
@@ -146,7 +110,7 @@ class IndustryDelete(APIView):
         Industry.objects.all().delete()
         return Response("", status=status.HTTP_200_OK)
 
-class IndustryUploadd(APIView):
+class IndustryUpload(APIView):
     def post(self, request, format=None):
         if (not is_authenticated(request)): return Response("", status=status.HTTP_401_UNAUTHORIZED)
         data = convertCSVToArray(request)
